@@ -17,10 +17,15 @@ namespace ShineTogether
 	{
 		[field: SerializeField]
 		public bool InteractionOnTrigger { get; private set; }
-
-		public void Interact(IInteractionInstigator instigator)
+        public bool HasBeenInteracted { get; private set; }
+        public void Interact(IInteractionInstigator instigator)
 		{
 			gameObject.SetActive(false);
-		}
-	}
+            HasBeenInteracted = true;
+        }
+        private void OnEnable()
+        {
+            HasBeenInteracted = false;
+        }
+    }
 }

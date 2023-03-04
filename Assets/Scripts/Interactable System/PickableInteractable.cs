@@ -9,6 +9,8 @@
  * 
  */
 
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ShineTogether
@@ -20,15 +22,17 @@ namespace ShineTogether
 		[Header("Pickable Interactable Settings")]
 		[SerializeField, Tooltip("Posición dónde se va a enganchar el objeto cuando se equipe")] private Transform targetPositionTransform;
 		[SerializeField] private Transform dropPositionTransform;
+		public bool HasBeenInteracted { get; private set; }
 
-		public virtual void Interact(IInteractionInstigator instigator)
+        public virtual void Interact(IInteractionInstigator instigator)
 		{
 			transform.SetParent(targetPositionTransform, false);
 			transform.position = targetPositionTransform.position;
 			transform.rotation = Quaternion.identity;
-
 			instigator.SetInteractedObject(this);
-		}
+			HasBeenInteracted = true;
+			GetComponent<SphereCollider>().enabled = false;
+        }
 
 		public void Drop()
 		{
@@ -36,6 +40,8 @@ namespace ShineTogether
 			transform.SetParent(null, false);
 			transform.position = dropPositionTransform.position;
 			transform.rotation = Quaternion.identity;
-		}
-	}
+            HasBeenInteracted = false;
+            GetComponent<SphereCollider>().enabled = true;
+        }
+    }
 }

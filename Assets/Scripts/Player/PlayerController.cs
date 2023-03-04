@@ -11,6 +11,7 @@
 
 using UnityEngine;
 using Kamizz.UnityGameUtils;
+using System.Collections;
 
 namespace ShineTogether
 {
@@ -25,11 +26,11 @@ namespace ShineTogether
 		private Vector3 movementVector = Vector3.zero;
 		private Vector2 movementInputVector = Vector2.zero;
 
-		private PickableInteractable equippedInteractable;
+        private PickableInteractable equippedInteractable;
 
-		#region Smoothing 
+        #region Smoothing 
 
-		private Vector2 currentMovementInput = Vector2.zero;
+        private Vector2 currentMovementInput = Vector2.zero;
 		private Vector2 smoothInputVelocity = Vector2.zero;
 
 		#endregion Smoothing
@@ -73,11 +74,15 @@ namespace ShineTogether
 			if (equippedInteractable)
 			{
 				equippedInteractable.Drop();
-				equippedInteractable = null;
-			}
+                equippedInteractable = null;
+            }
+			else
+				interactionController.TryInteraction();
+        }
 
-			interactionController.TryInteraction();
-		}
-		public void SetInteractedObject(IInteractable interactable) => equippedInteractable = (PickableInteractable)interactable;
-	}
+        public void SetInteractedObject(IInteractable interactable)
+		{
+			equippedInteractable = (PickableInteractable)interactable;
+        }
+    }
 }

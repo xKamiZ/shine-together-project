@@ -21,5 +21,6 @@ namespace ShineTogether
         /// </summary>
         bool InteractionOnTrigger { get; }
         void Interact(IInteractionInstigator instigator);
+        bool HasBeenInteracted { get; }
     }
 }

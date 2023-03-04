@@ -14,7 +14,6 @@ namespace ShineTogether
         [SerializeField] private Color lampColor;
         private Color lampGlassColor;
         [SerializeField, Range(0f, 255)] private float glassOpacity = 78;
-        [SerializeField] private float lightRange = 5f;
 
         [Header("Sphere Radius")]
         [SerializeField] private float radius = 1.5f;
@@ -22,9 +21,8 @@ namespace ShineTogether
 
         public Color LampColor => lampColor;
         public float Radius => radius;
-        public float LightRadius => lightRange;
         public Transform CirlceTransform => cirlceTransform;
-
+      
 
         [Header("Light Radius")]
         [SerializeField] private Transform cirlceTransform;
@@ -33,17 +31,18 @@ namespace ShineTogether
         public Color BorderColor;
         [Range(0f, 0.8f)]
         public float BorderWidth = 0.2f;
+        private Vector3 Center;
 
         void Start()
         {
-            ChangeValues();
+            Refresh();
         }
 
-        public void ChangeValues()
+        public void Refresh()
         {
             lampColor.a = 255f;
             pointLight.color = lampColor;
-            pointLight.range = lightRange;
+            pointLight.range = radius;
 
             lampGlassColor = lampColor;
             lampGlassColor.a = glassOpacity / 255f;
@@ -58,7 +57,7 @@ namespace ShineTogether
             {
                 center = cirlceTransform.position,
                 forward = cirlceTransform.forward,
-                radius = lightRange,
+                radius = radius,
                 fillColor = FillColor
             };
 

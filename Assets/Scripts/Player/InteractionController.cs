@@ -45,11 +45,27 @@ namespace ShineTogether
 			if (other.TryGetComponent(out IInteractable interactable))
 				scopeInteractable = null;
 		}
+        
+        private void OnCollisionEnter(Collision collision)
+        {
+            /*
+             * Box
+             * Input only w or s OR a or d
+             */
+        }
 
-		/// <summary>
-		/// Intenta una interacción con el objeto en el foco.
-		/// </summary>
-		public void TryInteraction()
+        private void OnCollisionExit(Collision collision)
+        {
+            /*
+             * Box
+             * Input what ever
+             */
+        }
+
+        /// <summary>
+        /// Intenta una interacción con el objeto en el foco.
+        /// </summary>
+        public void TryInteraction()
 		{
 			if (scopeInteractable != null)
 			{
