@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 using ShineTogether;
+using Shapes;
 
     [CustomEditor(typeof(Lamp))]
     public class LampEditor : Editor
@@ -11,7 +12,6 @@ using ShineTogether;
             base.OnInspectorGUI();
             Lamp lamp = (Lamp)target;
             lamp.ChangeValues();
-            Debug.Log("on inspector gui");
         }
 
         private void OnSceneGUI()
@@ -19,7 +19,7 @@ using ShineTogether;
             Lamp lamp = (Lamp)target;
 
             /*Draw angle*/
-            Handles.color = lamp.LampColor;
+            Handles.color = Color.white;
             Handles.DrawWireArc(lamp.transform.position, Vector3.up, Vector3.forward, 360, lamp.Radius);
             Handles.DrawWireArc(lamp.transform.position, Vector3.up, Vector3.forward, 360, lamp.LightRadius);
 
@@ -34,6 +34,8 @@ using ShineTogether;
             Handles.DrawLine(lamp.transform.position, lamp.transform.position + viewAngle02 * lamp.LightRadius);
             Handles.DrawLine(lamp.transform.position, lamp.transform.position + viewAngle03 * lamp.LightRadius);
             Handles.DrawLine(lamp.transform.position, lamp.transform.position + viewAngle04 * lamp.LightRadius);
+
+            lamp.DrawCircle();
         }
 
         /// <summary>

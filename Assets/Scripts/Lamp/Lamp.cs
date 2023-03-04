@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Shapes;
 
 namespace ShineTogether
 {
@@ -12,7 +13,7 @@ namespace ShineTogether
         [SerializeField] private MeshRenderer lampMaterial;
         [SerializeField] private Color lampColor;
         private Color lampGlassColor;
-        [SerializeField] private float glassOpacity = 78;
+        [SerializeField, Range(0f, 255)] private float glassOpacity = 78;
         [SerializeField] private float lightRange = 5f;
 
         [Header("Sphere Radius")]
@@ -22,9 +23,16 @@ namespace ShineTogether
         public Color LampColor => lampColor;
         public float Radius => radius;
         public float LightRadius => lightRange;
+        public Transform CirlceTransform => cirlceTransform;
 
 
-        public LineRenderer circleRender;
+        [Header("Light Radius")]
+        [SerializeField] private Transform cirlceTransform;
+        [SerializeField] public Color FillColor;
+        [SerializeField] private bool Border;
+        public Color BorderColor;
+        [Range(0f, 0.8f)]
+        public float BorderWidth = 0.2f;
 
         void Start()
         {
@@ -39,18 +47,34 @@ namespace ShineTogether
 
             lampGlassColor = lampColor;
             lampGlassColor.a = glassOpacity / 255f;
-            lampMaterial.material.color = lampGlassColor;
+            lampMaterial.sharedMaterial.color = lampGlassColor;
 
             sphereCollider.radius = radius;
         }
 
-        private void DrawCircle()
+        public void DrawCircle()
         {
+            CircleInfo circleInfo = new CircleInfo
+            {
+                center = cirlceTransform.position,
+                forward = cirlceTransform.forward,
+                radius = lightRange,
+                fillColor = FillColor
+            };
 
+            if (Border)
+            {
+                circleInfo.bordered = true;
+                circleInfo.borderColor = BorderColor;
+                circleInfo.borderWidth = BorderWidth;
+            }
+
+            Circle.Draw(circleInfo);
         }
 
         void Update()
         {
+            DrawCircle();
         }
     }
 }
