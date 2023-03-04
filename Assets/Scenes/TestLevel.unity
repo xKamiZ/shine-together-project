@@ -896,8 +896,8 @@ MonoBehaviour:
   lightRange: 2.62
   radius: 1.5
   sphereCollider: {fileID: 5954148334442628845}
-  Cirlce: {fileID: 1196880632}
-  FillColor: {r: 1, g: 0, b: 0, a: 255}
+  cirlceTransform: {fileID: 1196880633}
+  FillColor: {r: 1, g: 0, b: 0, a: 1}
   Border: 1
   BorderColor: {r: 1, g: 1, b: 1, a: 1}
   BorderWidth: 0.2
@@ -909,7 +909,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845991993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.004, y: 0.49999997, z: 3.605}
+  m_LocalPosition: {x: 2.004, y: 0.49999997, z: 0.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1113,8 +1113,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0, g: 1, b: 0.934247, a: 0.30588236}
-    - _Color: {r: 0, g: 1, b: 0.934247, a: 0.30588236}
+    - _BaseColor: {r: 0, g: 0, b: 1, a: 0.30588236}
+    - _Color: {r: 0, g: 0, b: 1, a: 0.30588236}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
@@ -1504,6 +1504,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018462660}
   m_Mesh: {fileID: -1914287032743215821, guid: c48a90e44bbaf4e4280d49aab48c9bdd, type: 3}
+--- !u!1001 &2062323335
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7746952503638470144, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746952503638470144, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746952503638470144, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746952503638470144, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.979
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746952503638470144, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746952503638470144, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746952503638470144, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746952503638470144, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746952503638470144, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746952503638470144, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746952503638470144, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746952503638470172, guid: 626d9052b53193342a3f6ca09c29a333,
+        type: 3}
+      propertyPath: m_Name
+      value: Collectable
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 626d9052b53193342a3f6ca09c29a333, type: 3}
 --- !u!4 &328476906231141861
 Transform:
   m_ObjectHideFlags: 0
@@ -1681,7 +1750,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0, g: 1, b: 0.934247, a: 255}
+  m_Color: {r: 0, g: 0, b: 1, a: 255}
   m_Intensity: 20
   m_Range: 2.49
   m_SpotAngle: 30
@@ -1760,7 +1829,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845991993}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.5
@@ -1894,7 +1963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8334461819456574379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.004, y: 0.49999997, z: -2.58}
+  m_LocalPosition: {x: 2.004, y: 0.49999997, z: -0.938}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1922,7 +1991,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8334461819456574379}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.5
@@ -1941,16 +2010,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointLight: {fileID: 3603755431476507030}
   lampMaterial: {fileID: 3560537367502793792}
-  lampColor: {r: 0, g: 1, b: 0.934247, a: 255}
+  lampColor: {r: 0, g: 0, b: 1, a: 255}
   glassOpacity: 78
   lightRange: 2.49
   radius: 1.5
   sphereCollider: {fileID: 8154086617481013544}
-  Cirlce: {fileID: 308096051}
-  FillColor: {r: 0, g: 0.8918469, b: 1, a: 1}
+  cirlceTransform: {fileID: 308096052}
+  FillColor: {r: 0, g: 0, b: 1, a: 1}
   Border: 1
   BorderColor: {r: 1, g: 1, b: 1, a: 1}
-  BorderWidth: 0.2
+  BorderWidth: 0.259
 --- !u!1 &8334461819456574379
 GameObject:
   m_ObjectHideFlags: 0

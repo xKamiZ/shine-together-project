@@ -35,16 +35,7 @@ using Shapes;
             Handles.DrawLine(lamp.transform.position, lamp.transform.position + viewAngle03 * lamp.LightRadius);
             Handles.DrawLine(lamp.transform.position, lamp.transform.position + viewAngle04 * lamp.LightRadius);
 
-
-            /*var circleInfo = new CircleInfo
-            {
-                center = lamp.CirlceTransform.position,
-                forward = lamp.CirlceTransform.forward,
-                radius = lamp.LightRadius,
-                fillColor = lamp.LampColor
-            };*/
-
-            //Circle.Draw(circleInfo);
+            lamp.DrawCircle();
         }
 
         /// <summary>
