@@ -31,7 +31,7 @@ namespace ShineTogether
 			transform.rotation = Quaternion.identity;
 			instigator.SetInteractedObject(this);
 			HasBeenInteracted = true;
-			GetComponent<SphereCollider>().enabled = false;
+			//GetComponent<SphereCollider>().enabled = false;
         }
 
 		public void Drop()
@@ -41,7 +41,7 @@ namespace ShineTogether
 			transform.position = dropPositionTransform.position;
 			transform.rotation = Quaternion.identity;
             HasBeenInteracted = false;
-            GetComponent<SphereCollider>().enabled = true;
+            //GetComponent<SphereCollider>().enabled = true;
         }
     }
 }

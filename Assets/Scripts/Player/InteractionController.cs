@@ -33,6 +33,15 @@ namespace ShineTogether
 
 		private void OnTriggerEnter(Collider other)
 		{
+			//if (other.TryGetComponent(out IInteractable interactable))
+			//{
+			//	if (interactable.InteractionOnTrigger) interactable.Interact(instigator);
+			//	else scopeInteractable = interactable;
+			//}
+		}
+
+		private void OnTriggerStay(Collider other)
+		{
 			if (other.TryGetComponent(out IInteractable interactable))
 			{
 				if (interactable.InteractionOnTrigger) interactable.Interact(instigator);
@@ -45,8 +54,8 @@ namespace ShineTogether
 			if (other.TryGetComponent(out IInteractable interactable))
 				scopeInteractable = null;
 		}
-        
-        private void OnCollisionEnter(Collision collision)
+
+		private void OnCollisionEnter(Collision collision)
         {
             /*
              * Box
@@ -69,6 +78,8 @@ namespace ShineTogether
 		{
 			if (scopeInteractable != null)
 			{
+				if (scopeInteractable.HasBeenInteracted) return;
+
 				scopeInteractable.Interact(instigator);
 				NotifyListeners();
 			}
