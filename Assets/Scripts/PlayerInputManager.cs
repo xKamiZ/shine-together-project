@@ -25,58 +25,55 @@ namespace Vicen_te.InputSystem
         /// </summary>
         [SerializeField] private float speed = 10f;
 
-        private void Awake()
+        [SerializeField, Range(0.0f, 1.0f)] private float movementSmoothingSpeed = 0.25f;
+
+        private Vector3 movementVector = Vector3.zero;
+
+		#region Smoothing 
+
+        private Vector2 currentMovementInput = Vector2.zero;
+        private Vector2 smoothInputVelocity = Vector2.zero;
+
+		#endregion
+
+		private void Awake()
         {
-            playerRigidbody = GetComponent<Rigidbody>();
+            TryGetComponent(out playerRigidbody);
+
             // Unity Events: playerInput = GetComponent<PlayerInput>();
 
             playerInputActions = new IA_PlayerControls();
-            playerInputActions.AM_Grounded.MoveAction.started += MovementStart;
-            playerInputActions.AM_Grounded.MoveAction.canceled += MovementCancel;
-            // Unity Events: playerInput.onActionTriggered += MovementStart;
 
             playerInputActions.AM_Grounded.Enable();
         }
-
         private void OnEnable()
         {
-            playerInputActions.AM_Grounded.Enable();
+			// Unity Events: playerInput.onActionTriggered += MovementStart;
+			playerInputActions.AM_Grounded.Enable();
         }
-        private void OnDisable()
+		private void OnDisable()
         {
-            playerInputActions.AM_Grounded.Disable();
+			// Unity Events: playerInput.onActionTriggered -= MovementStart;
+			playerInputActions.AM_Grounded.Disable();
         }
-
         private void Update()
         {
-            MovementPerformed();
+			MovementPerformed();
         }
 
-        private void MovementPerformed()
+		private void MovementPerformed()
         {
             Vector2 inputVector = playerInputActions.AM_Grounded.MoveAction.ReadValue<Vector2>();
-            Debug.Log(inputVector);
-            playerRigidbody.velocity = new Vector3(inputVector.x, 0, inputVector.y) * speed;
-        }
 
-        /// <summary>
-        /// Smooth the start movement
-        /// </summary>
-        /// <param name="context"></param>
-        private void MovementStart(InputAction.CallbackContext context)
-        {
-            // \todo On movement start
-            // Idea: Interpolate 0 to X playerRigidbody.velocity
-        }
+            SmoothInput(inputVector);
 
-        /// <summary>
-        /// Smooth the cancel movement
-        /// </summary>
-        /// <param name="context"></param>
-        private void MovementCancel(InputAction.CallbackContext context)
+			movementVector = new Vector3(currentMovementInput.x, 0.0f, currentMovementInput.y);
+            
+		    playerRigidbody.velocity = movementVector * speed;
+		}
+        private void SmoothInput(Vector2 inputVector)
         {
-            // \todo On movement Cancel
-            // Idea: Interpolate 0 to X playerRigidbody.velocity
-        }
-    }
+			currentMovementInput = Vector2.SmoothDamp(currentMovementInput, inputVector, ref smoothInputVelocity, movementSmoothingSpeed);
+		}
+	}
 }

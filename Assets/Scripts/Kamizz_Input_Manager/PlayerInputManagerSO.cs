@@ -30,6 +30,7 @@ namespace Kamizz.UnityGameUtils
 		// Usando Actions de C# -> System
 		public event Action<Vector2> OnMoveInputPerformed = delegate { };
 		public event Action OnMoveInputCanceled = delegate { };
+		public event Action OnInteractPerformed = delegate { };
 
 		#endregion
 
@@ -79,13 +80,15 @@ namespace Kamizz.UnityGameUtils
 
 		#region Input Calls
 
-		/// <summary>
-		/// Se llama cuando las teclas de movimiento han sido accionadas
-		/// </summary>
 		public void OnMoveAction(InputAction.CallbackContext context)
 		{
 			if (context.phase == InputActionPhase.Performed) OnMoveInputPerformed?.Invoke(context.ReadValue<Vector2>());
 			if (context.phase == InputActionPhase.Canceled) OnMoveInputCanceled?.Invoke();
+		}
+
+		public void OnInteract(InputAction.CallbackContext context)
+		{
+			if (context.phase == InputActionPhase.Performed) OnInteractPerformed?.Invoke();
 		}
 
 		#endregion Input Calls
