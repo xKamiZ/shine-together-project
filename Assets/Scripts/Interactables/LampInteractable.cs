@@ -13,14 +13,13 @@ using UnityEngine;
 
 namespace ShineTogether
 {
-    public class LampInteractable : MonoBehaviour, IInteractable
+    public class LampInteractable : PickableInteractable
     {
-		public bool HasBeenInteracted { get; set; } = false;
-
-		public void Interact()
+		public override void Interact(Transform instigator)
 		{
-			Debug.Log($"Interaction with {gameObject.name}");
-			HasBeenInteracted = true;
+			base.Interact(instigator);
+
+			// Funcionalidad extra al interactuar
 		}
-    }
+	}
 }

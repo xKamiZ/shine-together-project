@@ -9,11 +9,18 @@
  * 
  */
 
+using UnityEngine;
+
 namespace ShineTogether
 {
     public interface IInteractable
     {
+        /// <summary>
+        /// Si true, se llama a Interact() directamente cuando
+        /// se entre en trigger con el objeto.
+        /// </summary>
+        bool InteractionOnTrigger { get; }
         bool HasBeenInteracted { get; }
-        void Interact();
+        void Interact(Transform instigator);
     }
 }

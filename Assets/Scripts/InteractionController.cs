@@ -27,7 +27,11 @@ namespace ShineTogether
 		private void OnTriggerEnter(Collider other)
 		{
 			if (other.TryGetComponent(out IInteractable interactable))
-				scopeInteractable = interactable;
+			{
+				if (interactable.InteractionOnTrigger) interactable.Interact(transform);
+				else scopeInteractable = interactable;
+			}
+				
 		}
 		private void OnTriggerExit(Collider other)
 		{
@@ -44,7 +48,7 @@ namespace ShineTogether
 			{
 				if (scopeInteractable.HasBeenInteracted) return;
 
-				scopeInteractable.Interact();
+				scopeInteractable.Interact(transform);
 				NotifyListeners();
 			}
 		}

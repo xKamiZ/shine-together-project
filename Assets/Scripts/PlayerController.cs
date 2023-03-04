@@ -25,12 +25,14 @@ namespace ShineTogether
 		private Vector3 movementVector = Vector3.zero;
 		private Vector2 movementInputVector = Vector2.zero;
 
+		private PickableInteractable equippedInteractable;
+
 		#region Smoothing 
 
 		private Vector2 currentMovementInput = Vector2.zero;
 		private Vector2 smoothInputVelocity = Vector2.zero;
 
-		#endregion
+		#endregion Smoothing
 
 		#region Built In Methods
 
@@ -59,13 +61,18 @@ namespace ShineTogether
 			playerRigidbody.velocity = movementVector * movementSpeed * Time.fixedDeltaTime;
 		}
 
-		#endregion
+		#endregion Built In Methods
 
 		private void MovementInputPerformed(Vector2 inputValue) => movementInputVector = inputValue;
 		private void SmoothInput(Vector2 inputVector)
 		{
 			currentMovementInput = Vector2.SmoothDamp(currentMovementInput, inputVector, ref smoothInputVelocity, movementSmoothingSpeed);
 		}
-		private void InteractionInputPerformed() => interactionController.TryInteraction();
+		private void InteractionInputPerformed()
+		{
+			if (equippedInteractable) equippedInteractable.Drop();
+
+			interactionController.TryInteraction();
+		}
 	}
 }
