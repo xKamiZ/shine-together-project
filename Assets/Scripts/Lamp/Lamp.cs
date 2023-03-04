@@ -50,7 +50,6 @@ namespace ShineTogether
             lampMaterial.sharedMaterial.color = lampGlassColor;
 
             sphereCollider.radius = radius;
-            FillColor = lampColor;
         }
 
         public void DrawCircle()
