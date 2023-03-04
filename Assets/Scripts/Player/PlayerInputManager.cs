@@ -8,7 +8,6 @@
  * \note Fran Caamaño Martínez can manipulate the document during the Jame gam 15
  * 
  */
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,8 +27,9 @@ namespace Vicen_te.InputSystem
         [SerializeField, Range(0.0f, 1.0f)] private float movementSmoothingSpeed = 0.25f;
 
         private Vector3 movementVector = Vector3.zero;
+        private Vector2 inputVector = Vector2.zero;
 
-		#region Smoothing 
+        #region Smoothing 
 
         private Vector2 currentMovementInput = Vector2.zero;
         private Vector2 smoothInputVelocity = Vector2.zero;
@@ -46,31 +46,36 @@ namespace Vicen_te.InputSystem
 
             playerInputActions.AM_Grounded.Enable();
         }
+
         private void OnEnable()
         {
 			// Unity Events: playerInput.onActionTriggered += MovementStart;
 			playerInputActions.AM_Grounded.Enable();
         }
+
 		private void OnDisable()
         {
 			// Unity Events: playerInput.onActionTriggered -= MovementStart;
 			playerInputActions.AM_Grounded.Disable();
         }
+
         private void Update()
+        {
+            inputVector = playerInputActions.AM_Grounded.MoveAction.ReadValue<Vector2>();
+            SmoothInput(inputVector);
+            movementVector = new Vector3(currentMovementInput.x, 0.0f, currentMovementInput.y);
+        }
+
+        private void FixedUpdate()
         {
 			MovementPerformed();
         }
 
 		private void MovementPerformed()
         {
-            Vector2 inputVector = playerInputActions.AM_Grounded.MoveAction.ReadValue<Vector2>();
-
-            SmoothInput(inputVector);
-
-			movementVector = new Vector3(currentMovementInput.x, 0.0f, currentMovementInput.y);
-            
-		    playerRigidbody.velocity = movementVector * speed;
+		    playerRigidbody.velocity = movementVector * speed * Time.fixedDeltaTime;
 		}
+
         private void SmoothInput(Vector2 inputVector)
         {
 			currentMovementInput = Vector2.SmoothDamp(currentMovementInput, inputVector, ref smoothInputVelocity, movementSmoothingSpeed);
