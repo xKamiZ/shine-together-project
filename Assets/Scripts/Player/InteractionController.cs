@@ -24,11 +24,18 @@ namespace ShineTogether
 		/// </summary>
 		private IInteractionControllerListener[] listeners;
 
+		private IInteractionInstigator instigator;
+
+		private void Awake()
+		{
+			TryGetComponent(out instigator);
+		}
+
 		private void OnTriggerEnter(Collider other)
 		{
 			if (other.TryGetComponent(out IInteractable interactable))
 			{
-				if (interactable.InteractionOnTrigger) interactable.Interact(transform);
+				if (interactable.InteractionOnTrigger) interactable.Interact(instigator);
 				else scopeInteractable = interactable;
 			}
 				
@@ -46,9 +53,7 @@ namespace ShineTogether
 		{
 			if (scopeInteractable != null)
 			{
-				if (scopeInteractable.HasBeenInteracted) return;
-
-				scopeInteractable.Interact(transform);
+				scopeInteractable.Interact(instigator);
 				NotifyListeners();
 			}
 		}

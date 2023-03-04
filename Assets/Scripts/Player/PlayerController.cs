@@ -14,8 +14,8 @@ using Kamizz.UnityGameUtils;
 
 namespace ShineTogether
 {
-    public class PlayerController : MonoBehaviour
-    {
+    public class PlayerController : MonoBehaviour, IInteractionInstigator
+	{
         [SerializeField] private PlayerInputManagerSO playerInput;
 		[SerializeField] private float movementSpeed = 10f;
 		[SerializeField, Range(0.0f, 1.0f)] private float movementSmoothingSpeed = 0.25f;
@@ -70,9 +70,14 @@ namespace ShineTogether
 		}
 		private void InteractionInputPerformed()
 		{
-			if (equippedInteractable) equippedInteractable.Drop();
+			if (equippedInteractable)
+			{
+				equippedInteractable.Drop();
+				equippedInteractable = null;
+			}
 
 			interactionController.TryInteraction();
 		}
+		public void SetInteractedObject(IInteractable interactable) => equippedInteractable = (PickableInteractable)interactable;
 	}
 }

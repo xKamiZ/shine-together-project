@@ -15,14 +15,11 @@ namespace ShineTogether
 {
 	public class CollectableInteractable : MonoBehaviour, IInteractable
 	{
-		public bool HasBeenInteracted { get; private set; }
-
 		[field: SerializeField]
 		public bool InteractionOnTrigger { get; private set; }
 
-		public void Interact(Transform instigator)
+		public void Interact(IInteractionInstigator instigator)
 		{
-			Debug.Log($"Interaction with {gameObject.name}");
 			gameObject.SetActive(false);
 		}
 	}

@@ -20,7 +20,6 @@ namespace ShineTogether
         /// se entre en trigger con el objeto.
         /// </summary>
         bool InteractionOnTrigger { get; }
-        bool HasBeenInteracted { get; }
-        void Interact(Transform instigator);
+        void Interact(IInteractionInstigator instigator);
     }
 }

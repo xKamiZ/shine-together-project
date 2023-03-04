@@ -18,25 +18,24 @@ namespace ShineTogether
 		[field: SerializeField] public bool InteractionOnTrigger { get; private set; }
 
 		[Header("Pickable Interactable Settings")]
-		[SerializeField, Tooltip("Posición dónde se va a enganchar el objeto cuando se equipe")] private Transform targetPosition;
+		[SerializeField, Tooltip("Posición dónde se va a enganchar el objeto cuando se equipe")] private Transform targetPositionTransform;
+		[SerializeField] private Transform dropPositionTransform;
 
-		public bool HasBeenInteracted { get; set; } = false;
-
-		public virtual void Interact(Transform instigator)
+		public virtual void Interact(IInteractionInstigator instigator)
 		{
-			Debug.Log($"Interaction with {gameObject.name}");
-			HasBeenInteracted = true;
-
-			transform.SetParent(targetPosition, false);
-			transform.position = targetPosition.position;
+			transform.SetParent(targetPositionTransform, false);
+			transform.position = targetPositionTransform.position;
 			transform.rotation = Quaternion.identity;
 
-			// TO DO: Pasar la referencia de este objeto al Jugador
+			instigator.SetInteractedObject(this);
 		}
 
 		public void Drop()
 		{
 			// TO DO: Poner el objeto en el suelo.
+			transform.SetParent(null, false);
+			transform.position = dropPositionTransform.position;
+			transform.rotation = Quaternion.identity;
 		}
 	}
 }

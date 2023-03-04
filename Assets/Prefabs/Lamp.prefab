@@ -133,11 +133,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267da9479d9d49b43a66eb2970bedf57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 10
   pointLight: {fileID: 7311351834636315280}
   lampMaterial: {fileID: 7358229119478101830}
   lampColor: {r: 0, g: 1, b: 1, a: 255}
   glassOpacity: 78
+  lightRange: 5
+  radius: 10
+  sphereCollider: {fileID: 0}
+  cirlceTransform: {fileID: 0}
+  FillColor: {r: 0, g: 0, b: 0, a: 0}
+  Border: 0
+  BorderColor: {r: 0, g: 0, b: 0, a: 0}
+  BorderWidth: 0.2
 --- !u!135 &2764397814704747054
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -164,7 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InteractionOnTrigger>k__BackingField: 0
-  targetPosition: {fileID: 0}
+  targetPositionTransform: {fileID: 0}
+  dropPositionTransform: {fileID: 0}
 --- !u!1 &4494346998663033839
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +385,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0, g: 1, b: 1, a: 255}
   m_Intensity: 20
-  m_Range: 10
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

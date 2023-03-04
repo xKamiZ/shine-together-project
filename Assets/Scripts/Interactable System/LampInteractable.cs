@@ -15,7 +15,7 @@ namespace ShineTogether
 {
     public class LampInteractable : PickableInteractable
     {
-		public override void Interact(Transform instigator)
+		public override void Interact(IInteractionInstigator instigator)
 		{
 			base.Interact(instigator);
 
