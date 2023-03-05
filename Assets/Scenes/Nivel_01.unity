@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &25417828 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5571358558278475821, guid: 387753b24f256e7469c6b7e414c3b8c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1779962951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &281876676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -476,6 +482,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1682687813547493127, guid: 784c5aaf90043e546a08f812837a7068,
+        type: 3}
+      propertyPath: dropPositionTransform
+      value: 
+      objectReference: {fileID: 958666367}
+    - target: {fileID: 1682687813547493127, guid: 784c5aaf90043e546a08f812837a7068,
+        type: 3}
+      propertyPath: targetPositionTransform
+      value: 
+      objectReference: {fileID: 25417828}
     - target: {fileID: 2577870596227206247, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
       propertyPath: m_RootOrder
@@ -489,7 +505,7 @@ PrefabInstance:
     - target: {fileID: 2577870596227206247, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.339
+      value: -0.305
       objectReference: {fileID: 0}
     - target: {fileID: 2577870596227206247, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
@@ -535,6 +551,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Blue Lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423856062129435116, guid: 784c5aaf90043e546a08f812837a7068,
+        type: 3}
+      propertyPath: radius
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423856062129435116, guid: 784c5aaf90043e546a08f812837a7068,
+        type: 3}
+      propertyPath: intensity
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484600209268204162, guid: 784c5aaf90043e546a08f812837a7068,
+        type: 3}
+      propertyPath: m_Radius
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013601480650832444, guid: 784c5aaf90043e546a08f812837a7068,
+        type: 3}
+      propertyPath: m_Range
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013601480650832444, guid: 784c5aaf90043e546a08f812837a7068,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 784c5aaf90043e546a08f812837a7068, type: 3}
@@ -877,6 +918,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &958666367 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5571358557874804594, guid: 387753b24f256e7469c6b7e414c3b8c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1779962951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1264579221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1556,11 +1603,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 804387233620036757, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+        type: 3}
+      propertyPath: radius
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 804387233620036757, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+        type: 3}
+      propertyPath: intensity
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 804387233620036758, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
       propertyPath: m_Name
       value: Red Lamp
       objectReference: {fileID: 0}
+    - target: {fileID: 804387234208912854, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+        type: 3}
+      propertyPath: m_Range
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 804387234208912854, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451586444494051906, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+        type: 3}
+      propertyPath: m_Radius
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781717368717925278, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+        type: 3}
+      propertyPath: dropPositionTransform
+      value: 
+      objectReference: {fileID: 958666367}
+    - target: {fileID: 7781717368717925278, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+        type: 3}
+      propertyPath: targetPositionTransform
+      value: 
+      objectReference: {fileID: 25417828}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ef489e93c65cf84ea82f365a687b2fa, type: 3}
 --- !u!114 &1945746913 stripped
@@ -1933,7 +2015,7 @@ PrefabInstance:
     - target: {fileID: 2715135750983999592, guid: 61fe68257f034d1458723e472de33444,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.72819495
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 2715135750983999592, guid: 61fe68257f034d1458723e472de33444,
         type: 3}
@@ -2137,6 +2219,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7621675307052658480, guid: 5ec460688de78034faf681389e7ab938,
+        type: 3}
+      propertyPath: redLamp
+      value: 
+      objectReference: {fileID: 1945746913}
+    - target: {fileID: 7621675307052658480, guid: 5ec460688de78034faf681389e7ab938,
+        type: 3}
+      propertyPath: blueLamp
+      value: 
+      objectReference: {fileID: 555430717}
     - target: {fileID: 7621675307052658481, guid: 5ec460688de78034faf681389e7ab938,
         type: 3}
       propertyPath: m_Name

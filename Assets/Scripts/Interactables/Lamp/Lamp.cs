@@ -14,12 +14,13 @@ namespace ShineTogether
         [SerializeField] private Light pointLight;
         [SerializeField] private MeshRenderer lampMaterial;
         [SerializeField] private Color lampColor;
+        [SerializeField] private float radius = 1.5f;
         private Color lampGlassColor;
         [SerializeField, Range(0f, 255)] private float glassOpacity = 78;
         [SerializeField, Range(0f, 300)] private float intensity = 20;
 
         [Header("Sphere Radius")]
-        [SerializeField] private float radius = 1.5f;
+        [SerializeField] private float collisionRadius = 1.5f;
         [SerializeField] private SphereCollider sphereCollider;
 
         public Color LampColor => lampColor;
@@ -27,6 +28,7 @@ namespace ShineTogether
 
         public TypeOfColor TypeOfColor;
         public Transform CirlceTransform => cirlceTransform;
+
       
 
         [Header("Light Radius")]
@@ -45,12 +47,15 @@ namespace ShineTogether
         public void SetCirclePosition(Vector3 position)
         {
             cirlceTransform.position = position;
+            Border = false;
         }
 
         public void SetDefaultCirclePosition()
         {
             cirlceTransform.position = gameObject.transform.position;
+            Border = true;
         }
+
 
         public void Refresh()
         {
@@ -63,7 +68,7 @@ namespace ShineTogether
             lampGlassColor.a = glassOpacity / 255f;
             lampMaterial.sharedMaterial.color = lampGlassColor;
 
-            sphereCollider.radius = radius;
+            sphereCollider.radius = collisionRadius;
         }
 
         public void DrawCircle()
@@ -76,14 +81,23 @@ namespace ShineTogether
                 fillColor = FillColor
             };
 
+            CircleInfo circleInfo2 = new CircleInfo
+            {
+                center = cirlceTransform.position,
+                forward = cirlceTransform.forward,
+                radius = collisionRadius,
+                fillColor = Color.clear
+            };
+
             if (Border)
             {
-                circleInfo.bordered = true;
-                circleInfo.borderColor = BorderColor;
-                circleInfo.borderWidth = BorderWidth;
+                circleInfo2.bordered = true;
+                circleInfo2.borderColor = BorderColor;
+                circleInfo2.borderWidth = BorderWidth;
             }
 
             Circle.Draw(circleInfo);
+            Circle.Draw(circleInfo2);
         }
 
         void Update()

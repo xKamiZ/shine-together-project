@@ -171,13 +171,15 @@ MonoBehaviour:
   pointLight: {fileID: 804387234208912854}
   lampMaterial: {fileID: 347460814864653562}
   lampColor: {r: 0.9254902, g: 0.050980393, b: 0, a: 255}
+  radius: 4
   glassOpacity: 255
-  radius: 3.625
+  intensity: 20
+  collisionRadius: 1.5
   sphereCollider: {fileID: 6451586444494051906}
   TypeOfColor: 0
   cirlceTransform: {fileID: 804387232867823190}
-  FillColor: {r: 0.9254902, g: 0.050980393, b: 0, a: 0.05882353}
-  Border: 0
+  FillColor: {r: 0.9254902, g: 0.050980393, b: 0, a: 0.078431375}
+  Border: 1
   BorderColor: {r: 1, g: 1, b: 1, a: 1}
   BorderWidth: 0.2
 --- !u!135 &6451586444494051906

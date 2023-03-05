@@ -27,7 +27,7 @@ namespace ShineTogether
 			base.Interact(instigator);
 
             lamp.SetCirclePosition
-               (new Vector3(lamp.CirlceTransform.transform.position.x, 0.501f, lamp.CirlceTransform.transform.position.z));
+               (new Vector3(lamp.CirlceTransform.transform.position.x, 1.001f, lamp.CirlceTransform.transform.position.z));
         }
         public override void Drop()
         {
