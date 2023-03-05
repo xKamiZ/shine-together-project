@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: fda0bd63d5e54074f81df6b1237fbe49
+guid: c82dfccc752550e41a3b985307802ee1
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blanco
+    second: {fileID: 2100000, guid: 89add31359d12dd4aaa007a22f6f13f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: madera
+    second: {fileID: 2100000, guid: 553383ca6c38cc54f8e299e82c4dc76d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roca
+    second: {fileID: 2100000, guid: dec9f7b8aa75edf4cb93c2f73692a4cd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
