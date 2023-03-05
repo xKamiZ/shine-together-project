@@ -57,18 +57,18 @@ namespace ShineTogether
 
 		private void OnCollisionEnter(Collision collision)
         {
-            /*
-             * Box
-             * Input only w or s OR a or d
-             */
+			if(collision.gameObject.CompareTag("Box"))
+			{
+				// Check the input and disble when pressing w or s the d and s and vicevers.
+			}
         }
 
         private void OnCollisionExit(Collision collision)
         {
-            /*
-             * Box
-             * Input what ever
-             */
+            if (collision.gameObject.CompareTag("Box"))
+            {
+                // Normal input
+            }
         }
 
         /// <summary>

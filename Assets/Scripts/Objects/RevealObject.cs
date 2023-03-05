@@ -9,7 +9,7 @@ namespace ShineTogether
     public class RevealObject : MonoBehaviour
     {
         public List<RevealPoint> revealPoints;
-        [SerializeField] private float radius = 0.25f;
+        [SerializeField, Tooltip("This is only visual")] private float radius = 0.25f;
         [SerializeField] private int nodesRevealed = 0;
         public bool active;
         [SerializeField] private MeshRenderer revealObjectMaterial;
@@ -34,14 +34,13 @@ namespace ShineTogether
         {
             foreach (RevealPoint revealPoint in revealPoints)
             {
-                revealPoint.gameObject.GetComponent<SphereCollider>().radius = radius;
-                revealPoint.typeOfColor = typeOfColor;
-                revealPoint.radius = radius;
-                revealPoint.redLamp = redLamp;
-                revealPoint.blueLamp = blueLamp;
+                revealPoint.DefaultValues(typeOfColor, redLamp, blueLamp);
             }
             revealObjectMaterial.sharedMaterial.color = 
-                new Color(revealObjectMaterial.material.color.r , revealObjectMaterial.material.color.g , revealObjectMaterial.material.color.b, revealObjectOpacity / 255f);
+                new Color  (revealObjectMaterial.sharedMaterial.color.r, 
+                            revealObjectMaterial.sharedMaterial.color.g, 
+                            revealObjectMaterial.sharedMaterial.color.b, 
+                            revealObjectOpacity / 255f);
         }
 
         private void AddNode()
@@ -74,7 +73,6 @@ namespace ShineTogether
             meshCollider.enabled = active;
         }
 
-        // Update is called once per frame
         void Update()
         {
             CheckPosition();

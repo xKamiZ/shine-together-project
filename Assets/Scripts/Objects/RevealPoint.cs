@@ -9,43 +9,41 @@ namespace ShineTogether
     public class RevealPoint : MonoBehaviour
     {
         public bool active;
-        [HideInInspector] public TypeOfColor typeOfColor; 
-        [HideInInspector] public float radius;
-        [HideInInspector] public Lamp redLamp;
-        [HideInInspector] public Lamp blueLamp;
+        private TypeOfColor typeOfColor; 
+        private Lamp redLamp;
+        private Lamp blueLamp;
 
-        private void OnTriggerStay(Collider other)
+        public void DefaultValues(TypeOfColor typeOfColor, Lamp redLamp, Lamp blueLamp)
         {
-            if (other.TryGetComponent(out Lamp lamp))
-            {
-                if(lamp.TypeOfColor == typeOfColor)
-                    active = true;
-                else
-                {
-                    
-                }
-            }
+            this.typeOfColor = typeOfColor;
+            this.redLamp = redLamp;
+            this.blueLamp = blueLamp;
         }
 
-        private void OnTriggerExit(Collider other)
+        private void Update()
         {
-            active = false;
-        }
-
-        private void FixedUpdate()
-        {
-            if (typeOfColor != TypeOfColor.Purple) return;
             float distance1 = Mathf.Pow(redLamp.transform.position.x - transform.position.x, 2) +
-                       Mathf.Pow(redLamp.transform.position.y - transform.position.y, 2);
+                       Mathf.Pow(redLamp.transform.position.z - transform.position.z, 2);
             float distance2 = Mathf.Pow(blueLamp.transform.position.x - transform.position.x, 2) +
-                      Mathf.Pow(blueLamp.transform.position.y - transform.position.y, 2);
-            float raidus = Mathf.Pow((redLamp.Radius + blueLamp.Radius) / 2, 2);
-            Debug.Log(distance2 + " " + distance1 + " " + raidus);
-            // (R0 - R1) ^ 2 <= (x0 - x1) ^ 2 + (y0 - y1) ^ 2
-            if (distance2 <= raidus && distance1 <= raidus)
+                       Mathf.Pow(blueLamp.transform.position.z - transform.position.z, 2);
+            float distance3 = Mathf.Pow(blueLamp.transform.position.x - redLamp.transform.position.x, 2) +
+                      Mathf.Pow(blueLamp.transform.position.z - redLamp.transform.position.z, 2);
+
+            float raidus1 = Mathf.Pow(redLamp.Radius, 2);
+            float raidus2 = Mathf.Pow(blueLamp.Radius, 2);
+            float raidus3 = Mathf.Pow((redLamp.Radius + blueLamp.Radius),2);
+
+            Debug.Log($"distance1: {distance1}, distance2: {distance2}, distance3: {distance3}.  " +
+                $"raidus1: {raidus1}, raidus2: {raidus2}, raidus3: {raidus3}");
+            if (typeOfColor == TypeOfColor.Purple) 
             {
-                active = distance2 <= raidus && distance1 <= raidus;
-                Debug.Log("Purple");
+                active = distance1 <= raidus1 && distance2 <= raidus2 && distance3 <= raidus3;
+            }
+            else
+            {
+                active = !(distance1 <= raidus1 && distance2 <= raidus2 && distance3 <= raidus3);
+                if(active)
+                    active = typeOfColor == TypeOfColor.Red ? distance1 <= raidus1 : distance2 <= raidus2;
             }
         }
     }

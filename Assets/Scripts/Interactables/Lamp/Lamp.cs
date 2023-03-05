@@ -34,7 +34,6 @@ namespace ShineTogether
         public Color BorderColor;
         [Range(0f, 0.8f)]
         public float BorderWidth = 0.2f;
-        private Vector3 Center;
 
         void Start()
         {

@@ -5,7 +5,6 @@
  * \version 0.1
  * \date 2023
  * \copyright GPL v3 License
- * \note Fran Caamaño Martínez can manipulate the document during the Jame gam 15
  * 
  */
 using UnityEngine;

@@ -15,7 +15,7 @@ public class RevealObjectEditor : Editor
     }
 
     private void OnSceneGUI()
-    {   /*
+    {   
         RevealObject revealObject = (RevealObject)target;
 
         Handles.color = Color.white;
@@ -23,7 +23,6 @@ public class RevealObjectEditor : Editor
         {
             Handles.DrawWireArc(revealPoint.transform.position, Vector3.up, Vector3.forward, 360, revealObject.Radius);
         }
-        */
     }
 }
 #endif
