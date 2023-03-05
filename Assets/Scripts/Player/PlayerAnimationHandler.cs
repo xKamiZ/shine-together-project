@@ -13,7 +13,6 @@ using UnityEngine;
 
 namespace ShineTogether
 {
-	[RequireComponent(typeof(Animator))]
     public class PlayerAnimationHandler : MonoBehaviour
     {
         private Animator animator;

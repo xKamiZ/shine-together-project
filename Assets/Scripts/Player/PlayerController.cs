@@ -11,11 +11,9 @@
 
 using UnityEngine;
 using Kamizz.UnityGameUtils;
-using NightmaresProject;
 
 namespace ShineTogether
 {
-	[RequireComponent(typeof(StepSimulator))]
     public class PlayerController : MonoBehaviour, IInteractionInstigator
 	{
 		[Header("DATA")]
@@ -27,7 +25,6 @@ namespace ShineTogether
 		[SerializeField, Range(0.0f, 0.5f)] private float movementSmoothingSpeed = 0.25f;
 
 		private PlayerAnimationHandler animHandler;
-		private StepSimulator steps;
 		private AudioSource footstepSource;
 		private GroundDetector groundDetector;
 		private InteractionController interactionController;
@@ -50,7 +47,7 @@ namespace ShineTogether
 
 		private void Awake()
 		{
-			TryGetComponent(out steps);
+			TryGetComponent(out animHandler);
 			TryGetComponent(out footstepSource);
 			TryGetComponent(out  groundDetector);
 			TryGetComponent(out playerRigidbody);
@@ -60,15 +57,11 @@ namespace ShineTogether
 		{
 			playerInput.OnMoveInputPerformed += MovementInputPerformed;
 			playerInput.OnInteractPerformed += InteractionInputPerformed;
-
-			steps.OnStepPerformed += OnStepPerformed;
 		}
 		private void OnDisable()
 		{
 			playerInput.OnMoveInputPerformed -= MovementInputPerformed;
 			playerInput.OnInteractPerformed -= InteractionInputPerformed;
-
-			steps.OnStepPerformed -= OnStepPerformed;
 		}
 		private void Update()
 		{
@@ -76,7 +69,7 @@ namespace ShineTogether
 
 			movementVector = new Vector3(currentMovementInput.x, 0.0f, currentMovementInput.y);
 
-			animHandler.UpdateAnimator(movementInputVector.x);
+			animHandler.UpdateAnimator(movementVector.magnitude);
 		}
 		private void FixedUpdate()
 		{
@@ -102,7 +95,7 @@ namespace ShineTogether
 			else
 				interactionController.TryInteraction();
         }
-		private void OnStepPerformed()
+		public void OnStepPerformed()
 		{
 			if (groundDetector.Grounded)
 				footstepSource.PlayOneShot(footstepSounds.GetRandomFootstep());
