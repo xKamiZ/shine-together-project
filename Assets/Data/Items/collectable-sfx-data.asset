@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31948df30ae9d2244a78a862303b6a62, type: 3}
   m_Name: collectable-sfx-data
   m_EditorClassIdentifier: 
-  <PickUpSFX>k__BackingField: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0,
+  <PickUpSFX>k__BackingField: {fileID: 8300000, guid: b8348124eee11f24e851f5c842a29155,
     type: 3}
   <DropSFX>k__BackingField: {fileID: 0}

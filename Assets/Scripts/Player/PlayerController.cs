@@ -18,13 +18,15 @@ namespace ShineTogether
 	[RequireComponent(typeof(StepSimulator))]
     public class PlayerController : MonoBehaviour, IInteractionInstigator
 	{
+		[Header("DATA")]
         [SerializeField] private PlayerInputManagerSO playerInput;
 		[SerializeField] private FootstepSoundDataSO footstepSounds;
-		[SerializeField] private bool enableRotation = true;
+
 		[SerializeField] private float movementSpeed = 10f;
 		[SerializeField] private float rotationSpeed = 2.0f;
-		[SerializeField, Range(0.0f, 1.0f)] private float movementSmoothingSpeed = 0.25f;
+		[SerializeField, Range(0.0f, 0.5f)] private float movementSmoothingSpeed = 0.25f;
 
+		private PlayerAnimationHandler animHandler;
 		private StepSimulator steps;
 		private AudioSource footstepSource;
 		private GroundDetector groundDetector;
@@ -74,19 +76,13 @@ namespace ShineTogether
 
 			movementVector = new Vector3(currentMovementInput.x, 0.0f, currentMovementInput.y);
 
-			if (enableRotation)
-			{
-				if (IsMoving)
-				{
-					Quaternion targetRotation = Quaternion.LookRotation(movementVector, Vector3.up);
-
-					transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-				}
-			}
+			animHandler.UpdateAnimator(movementInputVector.x);
 		}
 		private void FixedUpdate()
 		{
 			playerRigidbody.velocity = movementVector * movementSpeed * Time.fixedDeltaTime;
+
+			HandleRotation();
 		}
 
 		#endregion Built In Methods
@@ -110,6 +106,15 @@ namespace ShineTogether
 		{
 			if (groundDetector.Grounded)
 				footstepSource.PlayOneShot(footstepSounds.GetRandomFootstep());
+		}
+		private void HandleRotation()
+		{
+			if (IsMoving)
+			{
+				Quaternion targetRotation = Quaternion.LookRotation(movementVector, Vector3.up);
+
+				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+			}
 		}
 
 		public void SetInteractedObject(IInteractable interactable)
