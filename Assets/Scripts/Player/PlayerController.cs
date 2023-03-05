@@ -73,9 +73,11 @@ namespace ShineTogether
 		}
 		private void FixedUpdate()
 		{
-			playerRigidbody.velocity = movementVector * movementSpeed * Time.fixedDeltaTime;
+			Vector3 movement = new Vector3(movementVector.x, 0, movementVector.z) * movementSpeed * Time.fixedDeltaTime;
 
-			HandleRotation();
+			playerRigidbody.velocity = new Vector3(movement.x, playerRigidbody.velocity.y, movement.z);
+
+            HandleRotation();
 		}
 
 		#endregion Built In Methods
