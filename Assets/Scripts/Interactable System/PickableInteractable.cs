@@ -21,7 +21,7 @@ namespace ShineTogether
 
 		[Header("Pickable Interactable Settings")]
 		[SerializeField, Tooltip("Posición dónde se va a enganchar el objeto cuando se equipe")] private Transform targetPositionTransform;
-		[SerializeField] private Transform dropPositionTransform;
+		[SerializeField] protected Transform dropPositionTransform;
 		public bool HasBeenInteracted { get; private set; }
 
         public virtual void Interact(IInteractionInstigator instigator)
@@ -31,17 +31,15 @@ namespace ShineTogether
 			transform.rotation = Quaternion.identity;
 			instigator.SetInteractedObject(this);
 			HasBeenInteracted = true;
-			//GetComponent<SphereCollider>().enabled = false;
         }
 
-		public void Drop()
+		public virtual void Drop()
 		{
 			// TO DO: Poner el objeto en el suelo.
 			transform.SetParent(null, false);
 			transform.position = dropPositionTransform.position;
 			transform.rotation = Quaternion.identity;
             HasBeenInteracted = false;
-            //GetComponent<SphereCollider>().enabled = true;
         }
     }
 }

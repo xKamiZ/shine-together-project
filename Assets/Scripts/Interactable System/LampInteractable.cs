@@ -15,11 +15,23 @@ namespace ShineTogether
 {
     public class LampInteractable : PickableInteractable
     {
-		public override void Interact(IInteractionInstigator instigator)
+        Lamp lamp;
+
+        private void Start()
+        {
+            lamp = GetComponent<Lamp>();
+        }
+
+        public override void Interact(IInteractionInstigator instigator)
 		{
 			base.Interact(instigator);
-
-			// Funcionalidad extra al interactuar
-		}
-	}
+            lamp.SetCirclePosition
+               (new Vector3(lamp.CirlceTransform.transform.position.x, 0.501f, lamp.CirlceTransform.transform.position.z));
+            // Funcionalidad extra al interactuar
+        }
+        public override void Drop()
+        {
+            lamp.SetDefaultCirclePosition();
+        }
+    }
 }

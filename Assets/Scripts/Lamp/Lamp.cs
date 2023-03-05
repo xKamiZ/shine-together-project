@@ -9,6 +9,7 @@ namespace ShineTogether
     public class Lamp : MonoBehaviour
     {
         [Header("Light Settings")]
+        [SerializeField] private TypeOfColor typeOfColor;
         [SerializeField] private Light pointLight;
         [SerializeField] private MeshRenderer lampMaterial;
         [SerializeField] private Color lampColor;
@@ -21,6 +22,8 @@ namespace ShineTogether
 
         public Color LampColor => lampColor;
         public float Radius => radius;
+
+        public TypeOfColor TypeOfColor;
         public Transform CirlceTransform => cirlceTransform;
       
 
@@ -36,6 +39,16 @@ namespace ShineTogether
         void Start()
         {
             Refresh();
+        }
+
+        public void SetCirclePosition(Vector3 position)
+        {
+            cirlceTransform.position = position;
+        }
+
+        public void SetDefaultCirclePosition()
+        {
+            cirlceTransform.position = gameObject.transform.position;
         }
 
         public void Refresh()
