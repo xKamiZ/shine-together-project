@@ -228,7 +228,7 @@ MonoBehaviour:
   sphereCollider: {fileID: 4484600209268204162}
   TypeOfColor: 1
   cirlceTransform: {fileID: 5698639792619071390}
-  FillColor: {r: 0, g: 0, b: 1, a: 0.3137255}
+  FillColor: {r: 0, g: 0, b: 1, a: 0.05882353}
   Border: 0
   BorderColor: {r: 1, g: 1, b: 1, a: 1}
   BorderWidth: 0.259
