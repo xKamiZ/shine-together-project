@@ -33,8 +33,8 @@ namespace ShineTogether
             float raidus2 = Mathf.Pow(blueLamp.Radius, 2);
             float raidus3 = Mathf.Pow((redLamp.Radius + blueLamp.Radius),2);
 
-            Debug.Log($"distance1: {distance1}, distance2: {distance2}, distance3: {distance3}.  " +
-                $"raidus1: {raidus1}, raidus2: {raidus2}, raidus3: {raidus3}");
+            /*Debug.Log($"distance1: {distance1}, distance2: {distance2}, distance3: {distance3}.  " +
+                $"raidus1: {raidus1}, raidus2: {raidus2}, raidus3: {raidus3}");*/
             if (typeOfColor == TypeOfColor.Purple) 
             {
                 active = distance1 <= raidus1 && distance2 <= raidus2 && distance3 <= raidus3;

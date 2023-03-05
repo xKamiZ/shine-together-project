@@ -8,13 +8,14 @@ namespace ShineTogether
 {
     public class RevealObject : MonoBehaviour
     {
+        [Header("Points")]
+        public bool active;
         public List<RevealPoint> revealPoints;
         [SerializeField, Tooltip("This is only visual")] private float radius = 0.25f;
-        [SerializeField] private int nodesRevealed = 0;
-        public bool active;
-        [SerializeField] private MeshRenderer revealObjectMaterial;
+        private int nodesRevealed = 0;
+        [SerializeField] private List<MeshRenderer> revealObjectMaterials;
         [SerializeField, Range(0f, 255)] private float revealObjectOpacity = 0;
-        private MeshCollider meshCollider;
+        [SerializeField] private MeshCollider meshCollider;
 
         [Header("Colors")]
         [SerializeField] private TypeOfColor typeOfColor;
@@ -27,7 +28,6 @@ namespace ShineTogether
         private void Start()
         {
             Refresh();
-            meshCollider = GetComponent<MeshCollider>();
         }
 
         public void Refresh()
@@ -36,11 +36,14 @@ namespace ShineTogether
             {
                 revealPoint.DefaultValues(typeOfColor, redLamp, blueLamp);
             }
-            revealObjectMaterial.sharedMaterial.color = 
-                new Color  (revealObjectMaterial.sharedMaterial.color.r, 
-                            revealObjectMaterial.sharedMaterial.color.g, 
-                            revealObjectMaterial.sharedMaterial.color.b, 
+            foreach (var revealObjectMaterial in revealObjectMaterials)
+            {
+                revealObjectMaterial.sharedMaterial.color =
+                new Color(revealObjectMaterial.sharedMaterial.color.r,
+                            revealObjectMaterial.sharedMaterial.color.g,
+                            revealObjectMaterial.sharedMaterial.color.b,
                             revealObjectOpacity / 255f);
+            }
         }
 
         private void AddNode()
@@ -51,8 +54,14 @@ namespace ShineTogether
         private void CheckNodes()
         {
             float aplha = (float)nodesRevealed / (float)revealPoints.Count;
-            revealObjectMaterial.sharedMaterial.color = 
-                new Color(revealObjectMaterial.material.color.r, revealObjectMaterial.material.color.g, revealObjectMaterial.material.color.b, aplha);
+            foreach (var revealObjectMaterial in revealObjectMaterials)
+            {
+                revealObjectMaterial.material.color =
+                new Color(revealObjectMaterial.material.color.r,
+                            revealObjectMaterial.material.color.g,
+                            revealObjectMaterial.material.color.b,
+                            aplha);
+            }
         }
 
         void CheckPosition()
