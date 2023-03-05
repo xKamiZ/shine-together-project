@@ -11,22 +11,31 @@
 
 using UnityEngine;
 using Kamizz.UnityGameUtils;
-using System.Collections;
+using NightmaresProject;
 
 namespace ShineTogether
 {
+	[RequireComponent(typeof(StepSimulator))]
     public class PlayerController : MonoBehaviour, IInteractionInstigator
 	{
         [SerializeField] private PlayerInputManagerSO playerInput;
+		[SerializeField] private FootstepSoundDataSO footstepSounds;
+		[SerializeField] private bool enableRotation = true;
 		[SerializeField] private float movementSpeed = 10f;
+		[SerializeField] private float rotationSpeed = 2.0f;
 		[SerializeField, Range(0.0f, 1.0f)] private float movementSmoothingSpeed = 0.25f;
 
+		private StepSimulator steps;
+		private AudioSource footstepSource;
+		private GroundDetector groundDetector;
 		private InteractionController interactionController;
 		private Rigidbody playerRigidbody;
 		private Vector3 movementVector = Vector3.zero;
 		private Vector2 movementInputVector = Vector2.zero;
 
         private PickableInteractable equippedInteractable;
+
+		public bool IsMoving  => movementInputVector.x != 0.0f || movementInputVector.y != 0.0f;
 
         #region Smoothing 
 
@@ -39,6 +48,9 @@ namespace ShineTogether
 
 		private void Awake()
 		{
+			TryGetComponent(out steps);
+			TryGetComponent(out footstepSource);
+			TryGetComponent(out  groundDetector);
 			TryGetComponent(out playerRigidbody);
 			TryGetComponent(out interactionController);
 		}
@@ -46,16 +58,31 @@ namespace ShineTogether
 		{
 			playerInput.OnMoveInputPerformed += MovementInputPerformed;
 			playerInput.OnInteractPerformed += InteractionInputPerformed;
+
+			steps.OnStepPerformed += OnStepPerformed;
 		}
 		private void OnDisable()
 		{
 			playerInput.OnMoveInputPerformed -= MovementInputPerformed;
 			playerInput.OnInteractPerformed -= InteractionInputPerformed;
+
+			steps.OnStepPerformed -= OnStepPerformed;
 		}
 		private void Update()
 		{
 			SmoothInput(movementInputVector);
+
 			movementVector = new Vector3(currentMovementInput.x, 0.0f, currentMovementInput.y);
+
+			if (enableRotation)
+			{
+				if (IsMoving)
+				{
+					Quaternion targetRotation = Quaternion.LookRotation(movementVector, Vector3.up);
+
+					transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+				}
+			}
 		}
 		private void FixedUpdate()
 		{
@@ -79,8 +106,13 @@ namespace ShineTogether
 			else
 				interactionController.TryInteraction();
         }
+		private void OnStepPerformed()
+		{
+			if (groundDetector.Grounded)
+				footstepSource.PlayOneShot(footstepSounds.GetRandomFootstep());
+		}
 
-        public void SetInteractedObject(IInteractable interactable)
+		public void SetInteractedObject(IInteractable interactable)
 		{
 			equippedInteractable = (PickableInteractable)interactable;
         }
