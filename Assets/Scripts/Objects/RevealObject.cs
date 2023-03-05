@@ -15,7 +15,7 @@ namespace ShineTogether
         private int nodesRevealed = 0;
         [SerializeField] private List<MeshRenderer> revealObjectMaterials;
         [SerializeField, Range(0f, 255)] private float revealObjectOpacity = 0;
-        [SerializeField] private MeshCollider meshCollider;
+        [SerializeField] private List<MeshCollider> meshColliders;
 
         [Header("Colors")]
         [SerializeField] private TypeOfColor typeOfColor;
@@ -79,7 +79,10 @@ namespace ShineTogether
 
         void CheckCollider()
         {
-            meshCollider.enabled = active;
+            foreach (var meshCollider in meshColliders)
+            {
+                meshCollider.enabled = active;
+            }
         }
 
         void Update()

@@ -34,7 +34,7 @@ namespace ShineTogether
 
         private PickableInteractable equippedInteractable;
 
-		public bool IsMoving  => movementInputVector.x != 0.0f || movementInputVector.y != 0.0f;
+        public bool IsMoving  => movementInputVector.x != 0.0f || movementInputVector.y != 0.0f;
 
         #region Smoothing 
 
@@ -107,7 +107,6 @@ namespace ShineTogether
 			if (IsMoving)
 			{
 				Quaternion targetRotation = Quaternion.LookRotation(movementVector, Vector3.up);
-
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
 			}
 		}

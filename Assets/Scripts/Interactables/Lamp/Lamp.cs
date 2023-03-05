@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using Shapes;
+using UnityEngine.Experimental.GlobalIllumination;
 
 namespace ShineTogether
 {
@@ -15,6 +16,7 @@ namespace ShineTogether
         [SerializeField] private Color lampColor;
         private Color lampGlassColor;
         [SerializeField, Range(0f, 255)] private float glassOpacity = 78;
+        [SerializeField, Range(0f, 300)] private float intensity = 20;
 
         [Header("Sphere Radius")]
         [SerializeField] private float radius = 1.5f;
@@ -55,6 +57,7 @@ namespace ShineTogether
             lampColor.a = 255f;
             pointLight.color = lampColor;
             pointLight.range = radius;
+            pointLight.intensity = intensity;
 
             lampGlassColor = lampColor;
             lampGlassColor.a = glassOpacity / 255f;
