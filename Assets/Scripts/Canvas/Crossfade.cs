@@ -41,6 +41,14 @@ public class Crossfade : MonoBehaviour
     }
 
     /// <summary>
+    /// Quit the game
+    /// </summary>
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    /// <summary>
     /// Load the next level
     /// </summary>
     /// <param name="sceneName"></param>
