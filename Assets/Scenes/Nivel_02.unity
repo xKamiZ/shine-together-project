@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.013173922, g: 0.015895952, b: 0.0167116, a: 1}
+  m_IndirectSpecularColor: {r: 0.1139091, g: 0.124514915, b: 0.12871051, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,12 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &168479281 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5571358558278475821, guid: 387753b24f256e7469c6b7e414c3b8c2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1932212577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &224779104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -716,12 +710,12 @@ PrefabInstance:
         type: 3}
       propertyPath: dropPositionTransform
       value: 
-      objectReference: {fileID: 1163287678}
+      objectReference: {fileID: 1932212579}
     - target: {fileID: 1682687813547493127, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
       propertyPath: targetPositionTransform
       value: 
-      objectReference: {fileID: 168479281}
+      objectReference: {fileID: 1932212580}
     - target: {fileID: 2577870596227206247, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
       propertyPath: m_RootOrder
@@ -781,31 +775,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Blue Lamp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4423856062129435116, guid: 784c5aaf90043e546a08f812837a7068,
-        type: 3}
-      propertyPath: radius
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4423856062129435116, guid: 784c5aaf90043e546a08f812837a7068,
-        type: 3}
-      propertyPath: intensity
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4484600209268204162, guid: 784c5aaf90043e546a08f812837a7068,
-        type: 3}
-      propertyPath: m_Radius
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9013601480650832444, guid: 784c5aaf90043e546a08f812837a7068,
-        type: 3}
-      propertyPath: m_Range
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9013601480650832444, guid: 784c5aaf90043e546a08f812837a7068,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 784c5aaf90043e546a08f812837a7068, type: 3}
@@ -964,12 +933,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6abdca894226fc44b17e32feadff8bf, type: 3}
---- !u!4 &1163287678 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5571358557874804594, guid: 387753b24f256e7469c6b7e414c3b8c2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1932212577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1173131358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1701,46 +1664,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 804387233620036757, guid: 4ef489e93c65cf84ea82f365a687b2fa,
-        type: 3}
-      propertyPath: radius
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 804387233620036757, guid: 4ef489e93c65cf84ea82f365a687b2fa,
-        type: 3}
-      propertyPath: intensity
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 804387233620036758, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
       propertyPath: m_Name
       value: Red Lamp
       objectReference: {fileID: 0}
-    - target: {fileID: 804387234208912854, guid: 4ef489e93c65cf84ea82f365a687b2fa,
-        type: 3}
-      propertyPath: m_Range
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 804387234208912854, guid: 4ef489e93c65cf84ea82f365a687b2fa,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6451586444494051906, guid: 4ef489e93c65cf84ea82f365a687b2fa,
-        type: 3}
-      propertyPath: m_Radius
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7781717368717925278, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
       propertyPath: dropPositionTransform
       value: 
-      objectReference: {fileID: 1163287678}
+      objectReference: {fileID: 1932212579}
     - target: {fileID: 7781717368717925278, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
       propertyPath: targetPositionTransform
       value: 
-      objectReference: {fileID: 168479281}
+      objectReference: {fileID: 1932212580}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ef489e93c65cf84ea82f365a687b2fa, type: 3}
 --- !u!114 &1755584343 stripped
@@ -2145,6 +2083,18 @@ PrefabInstance:
 --- !u!4 &1932212578 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5571358559557213557, guid: 387753b24f256e7469c6b7e414c3b8c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1932212577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1932212579 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5571358557874804594, guid: 387753b24f256e7469c6b7e414c3b8c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1932212577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1932212580 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5571358558278475821, guid: 387753b24f256e7469c6b7e414c3b8c2,
     type: 3}
   m_PrefabInstance: {fileID: 1932212577}
   m_PrefabAsset: {fileID: 0}

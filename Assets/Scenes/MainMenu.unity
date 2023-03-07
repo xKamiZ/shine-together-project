@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.118700214, g: 0.13284016, b: 0.13679764, a: 1}
+  m_IndirectSpecularColor: {r: 0.1139091, g: 0.124514915, b: 0.12871051, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -425,20 +425,20 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 509321259}
+  m_TargetGraphic: {fileID: 2105635323}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5809193259443127115}
         m_TargetAssemblyTypeName: Crossfade, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+        m_MethodName: QuitGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel_00_Tutorial
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &509321259
@@ -1677,16 +1677,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2577870596227206247, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 2577870596227206247, guid: 784c5aaf90043e546a08f812837a7068,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.0000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 2577870596227206247, guid: 784c5aaf90043e546a08f812837a7068,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.94
       objectReference: {fileID: 0}
@@ -1698,7 +1688,7 @@ PrefabInstance:
     - target: {fileID: 2577870596227206247, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.36
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2577870596227206247, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
@@ -1740,30 +1730,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Lamp
       objectReference: {fileID: 0}
-    - target: {fileID: 4376467973199222791, guid: 784c5aaf90043e546a08f812837a7068,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4423856062129435116, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
-      propertyPath: Border
-      value: 0
+      propertyPath: radius
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 4423856062129435116, guid: 784c5aaf90043e546a08f812837a7068,
+    - target: {fileID: 5136383015866218590, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_LocalScale.x
+      value: 8.494
       objectReference: {fileID: 0}
-    - target: {fileID: 4484600209268204162, guid: 784c5aaf90043e546a08f812837a7068,
+    - target: {fileID: 5136383015866218590, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
-      propertyPath: m_Radius
-      value: 1.5
+      propertyPath: m_LocalScale.y
+      value: 8.494
+      objectReference: {fileID: 0}
+    - target: {fileID: 5136383015866218590, guid: 784c5aaf90043e546a08f812837a7068,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8.494
       objectReference: {fileID: 0}
     - target: {fileID: 9013601480650832444, guid: 784c5aaf90043e546a08f812837a7068,
         type: 3}
       propertyPath: m_Range
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013601480650832444, guid: 784c5aaf90043e546a08f812837a7068,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 243.59999
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013601480650832444, guid: 784c5aaf90043e546a08f812837a7068,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013601480650832444, guid: 784c5aaf90043e546a08f812837a7068,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 7e-45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 784c5aaf90043e546a08f812837a7068, type: 3}
@@ -1828,6 +1833,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283150280498288529, guid: e6abdca894226fc44b17e32feadff8bf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2283150280498288530, guid: e6abdca894226fc44b17e32feadff8bf,
         type: 3}
@@ -1956,18 +1966,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804387233620036756, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 804387233620036756, guid: 4ef489e93c65cf84ea82f365a687b2fa,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.0000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 804387233620036756, guid: 4ef489e93c65cf84ea82f365a687b2fa,
-        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.419991
+      value: -10.548
       objectReference: {fileID: 0}
     - target: {fileID: 804387233620036756, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
@@ -1977,7 +1977,7 @@ PrefabInstance:
     - target: {fileID: 804387233620036756, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.250002
+      value: 18.76
       objectReference: {fileID: 0}
     - target: {fileID: 804387233620036756, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
@@ -2016,13 +2016,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804387233620036757, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
-      propertyPath: Border
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 804387233620036757, guid: 4ef489e93c65cf84ea82f365a687b2fa,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: radius
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 804387233620036758, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
@@ -2034,15 +2029,35 @@ PrefabInstance:
       propertyPath: m_Range
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 6451586444494051906, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+    - target: {fileID: 804387234208912854, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
-      propertyPath: m_Radius
-      value: 1.5
+      propertyPath: m_BoundingSphereOverride.w
+      value: 8.5e-44
       objectReference: {fileID: 0}
-    - target: {fileID: 7781717368717925276, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+    - target: {fileID: 804387234208912854, guid: 4ef489e93c65cf84ea82f365a687b2fa,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_BoundingSphereOverride.x
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 804387234208912854, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 3736750060985298573, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.494
+      objectReference: {fileID: 0}
+    - target: {fileID: 3736750060985298573, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.494
+      objectReference: {fileID: 0}
+    - target: {fileID: 3736750060985298573, guid: 4ef489e93c65cf84ea82f365a687b2fa,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8.494
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ef489e93c65cf84ea82f365a687b2fa, type: 3}
@@ -2387,8 +2402,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650419158}
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: -53.639503, y: -11.740682, z: 15.019289}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -53.63951, y: -11.740682, z: 15.019289}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3121,7 +3136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2105635321
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3138,9 +3153,9 @@ RectTransform:
   m_Father: {fileID: 1402370734}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 204.58826, y: -620.0437}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 231.556, y: 84.339}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2105635322
@@ -3212,7 +3227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5686275}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

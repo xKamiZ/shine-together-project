@@ -36,6 +36,8 @@ namespace ShineTogether
 
         public bool IsMoving  => movementInputVector.x != 0.0f || movementInputVector.y != 0.0f;
 
+		public int HasLamp => equippedInteractable != null ? 1 : 0;
+
         #region Smoothing 
 
         private Vector2 currentMovementInput = Vector2.zero;
@@ -69,7 +71,7 @@ namespace ShineTogether
 
 			movementVector = new Vector3(currentMovementInput.x, 0.0f, currentMovementInput.y);
 
-			animHandler.UpdateAnimator(movementVector.magnitude);
+			animHandler.UpdateAnimator(movementVector.magnitude, HasLamp);
 		}
 		private void FixedUpdate()
 		{

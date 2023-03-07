@@ -16,8 +16,8 @@ namespace ShineTogether
         [SerializeField] private Color lampColor;
         [SerializeField] private float radius = 1.5f;
         private Color lampGlassColor;
-        [SerializeField, Range(0f, 255)] private float glassOpacity = 78;
-        [SerializeField, Range(0f, 300)] private float intensity = 20;
+        [SerializeField, Range(0f, 255f)] private float glassOpacity = 78;
+        [SerializeField, Range(0f, 10f)] private float intensity = 20;
 
         [Header("Sphere Radius")]
         [SerializeField] private float collisionRadius = 1.5f;
@@ -27,17 +27,21 @@ namespace ShineTogether
         public float Radius => radius;
 
         public TypeOfColor TypeOfColor;
-        public Transform CirlceTransform => cirlceTransform;
+        public Transform CirlceTransform => circle.transform;
 
-      
-
-        [Header("Light Radius")]
+          [Header("Light Radius")]
+        /*
         [SerializeField] private Transform cirlceTransform;
         [SerializeField] public Color FillColor;
         [SerializeField] private bool Border;
         public Color BorderColor;
         [Range(0f, 0.8f)]
-        public float BorderWidth = 0.2f;
+        public float BorderWidth = 0.2f;*/
+
+        [SerializeField] private GameObject circle;
+        [SerializeField] private MeshRenderer circleMaterial;
+        private Color circleColor;
+        [SerializeField, Range(0f, 1f)] private float circleOpacity;
 
         void Start()
         {
@@ -46,14 +50,14 @@ namespace ShineTogether
 
         public void SetCirclePosition(Vector3 position)
         {
-            cirlceTransform.position = position;
-            Border = false;
+            circle.transform.position = position;
+            //Border = false;
         }
 
         public void SetDefaultCirclePosition()
         {
-            cirlceTransform.position = gameObject.transform.position;
-            Border = true;
+            circle.transform.position = gameObject.transform.position;
+            //Border = true;
         }
 
 
@@ -63,6 +67,12 @@ namespace ShineTogether
             pointLight.color = lampColor;
             pointLight.range = radius;
             pointLight.intensity = intensity;
+            circleMaterial.sharedMaterial.color = lampGlassColor;
+
+            circleColor = lampColor;
+            circleColor.a = circleOpacity;
+            circleMaterial.sharedMaterial.color = circleColor;
+            CirlceTransform.localScale = new Vector3(radius * 2.1235f, radius * 2.1235f, radius * 2.1235f);
 
             lampGlassColor = lampColor;
             lampGlassColor.a = glassOpacity / 255f;
@@ -73,14 +83,15 @@ namespace ShineTogether
 
         public void DrawCircle()
         {
+            /*
             CircleInfo circleInfo = new CircleInfo
             {
-                center = cirlceTransform.position,
-                forward = cirlceTransform.forward,
+                center = CirlceTransform.position,
+                forward = CirlceTransform.forward,
                 radius = radius,
                 fillColor = FillColor
             };
-
+            
             CircleInfo circleInfo2 = new CircleInfo
             {
                 center = cirlceTransform.position,
@@ -95,9 +106,9 @@ namespace ShineTogether
                 circleInfo2.borderColor = BorderColor;
                 circleInfo2.borderWidth = BorderWidth;
             }
-
-            Circle.Draw(circleInfo);
+            
             Circle.Draw(circleInfo2);
+            Circle.Draw(circleInfo);*/
         }
 
         void Update()

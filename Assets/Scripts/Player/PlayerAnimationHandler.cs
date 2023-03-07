@@ -19,7 +19,7 @@ namespace ShineTogether
 
 		#region Animator Hash Values
 
-		private int horizontalHash;
+		private int horizontalHash, lampHash;
 
 		#endregion
 
@@ -29,12 +29,14 @@ namespace ShineTogether
 		}
 		private void Start()
 		{
-			horizontalHash = Animator.StringToHash("Horizontal");	
-		}
+			horizontalHash = Animator.StringToHash("Horizontal");
+            //lampHash = Animator.StringToHash("Lamp");
+        }
 
-		public void UpdateAnimator(float movementX)
+		public void UpdateAnimator(float movementX, int lamp)
 		{
 			animator.SetFloat(horizontalHash, movementX, 0.1f, Time.deltaTime);
-		}
+            //animator.SetFloat(lampHash, lamp, 0.1f, Time.deltaTime);
+        }
 	}
 }
