@@ -1,7 +1,7 @@
 /*!
  * 
  * \brief Player Controller Implementation
- * \author Fran Caamaño Martínez
+ * \author Fran Caamaï¿½o Martï¿½nez
  * \version 0.1
  * \date 2023
  * \copyright GPL v3 License
@@ -23,7 +23,7 @@ namespace ShineTogether
 		[SerializeField] private float movementSpeed = 10f;
 		[SerializeField] private float rotationSpeed = 2.0f;
 		[SerializeField, Range(0.0f, 0.5f)] private float movementSmoothingSpeed = 0.25f;
-
+		
 		private PlayerAnimationHandler animHandler;
 		private AudioSource footstepSource;
 		private GroundDetector groundDetector;
